@@ -6,9 +6,7 @@
 This is an Android flashcard app that can be used to answer both multiple choice questions and free answer questions. The app is able to display a question and respond to a user's tap to display the answer of the question. 
 
 ### App Walk-though
-`TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
-
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+<img src="https://github.com/fobi1/Flashcard_App_CodePath/blob/master/flashcardwalkthrough.gif" width=200><br>
 
 
 ## Required
