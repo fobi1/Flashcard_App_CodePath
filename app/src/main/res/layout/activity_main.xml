@@ -32,13 +32,12 @@
     <TextView
         android:id="@+id/answerChoice1"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_centerVertical="true"
-        android:layout_margin="15dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         android:background="#ffd966"
         android:gravity="center"
         android:text="Yellow"
@@ -47,13 +46,12 @@
     <TextView
         android:id="@+id/answerChoice2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_below="@id/answerChoice1"
-        android:layout_margin="20dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:background="#674ea7"
         android:gravity="center"
         android:text="Violet"
@@ -62,7 +60,7 @@
     <TextView
         android:id="@+id/answerChoice3"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_below="@id/answerChoice2"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -80,17 +78,25 @@
         android:layout_above="@id/answerChoice1"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        app:srcCompat="@drawable/ic_thirdeyeopen"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_thirdeyeopen" />
 
     <ImageView
         android:id="@+id/thirdEyeClosed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_thirdeyeclosed"
         android:layout_above="@id/answerChoice1"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/ic_thirdeyeclosed" />
+
+    <ImageView
+        android:id="@+id/plussign"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:srcCompat="@drawable/ic_plussign" />
 
 
 </RelativeLayout>
