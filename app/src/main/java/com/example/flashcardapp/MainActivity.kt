@@ -10,9 +10,26 @@ import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : AppCompatActivity() {
+    lateinit var flashcardDatabase: FlashcardDatabase //need to create instance of database so we can read and define data
+    var allFlashcards = mutableListOf<Flashcard>() //initialized as class variable to point to empty mutable list
+
+    var currCardDisplayedIndex = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        flashcardDatabase = FlashcardDatabase(this)
+        allFlashcards= flashcardDatabase.getAllCards().toMutableList()
+        //returns a list of flashcard objects and converts it to a mutable list
+
+        val flashcardQuestion = findViewById<TextView>(R.id.flashcard_question)
+        val flashcardAnswer = findViewById<TextView>(R.id.flashcard_answer)
+
+        if(allFlashcards.size >0) {
+            flashcardQuestion.text = allFlashcards[0].question
+            flashcardAnswer.text = allFlashcards[0].answer
+        }
 
         findViewById<TextView>(R.id.flashcard_question).setOnClickListener {
             findViewById<TextView>(R.id.flashcard_question).visibility = View.INVISIBLE
@@ -48,6 +65,9 @@ class MainActivity : AppCompatActivity() {
             findViewById<ImageView>(R.id.thirdEyeOpen).visibility = View.INVISIBLE
         }
 
+
+
+
         val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             val data: Intent? = result.data
             if (data != null) { // Check that we have data returned - if data DOES NOT EQUAL null
@@ -61,6 +81,11 @@ class MainActivity : AppCompatActivity() {
                 // Log the value of the strings for easier debugging
                 Log.i("MainActivity", "question: $questionString")
                 Log.i("MainActivity", "answer: $answerString")
+
+                if(!questionString.isNullOrEmpty() && !answerString.isNullOrEmpty()) {
+                    flashcardDatabase.insertCard(Flashcard(questionString, answerString))
+                    allFlashcards= flashcardDatabase.getAllCards().toMutableList()
+                }
             } else {
                 Log.i("MainActivity", "Returned null data from AddCardActivity")
             }
@@ -71,5 +96,28 @@ class MainActivity : AppCompatActivity() {
             resultLauncher.launch(intent)
         }
 
+        val nextArrow = findViewById<ImageView>(R.id.nextarrow).setOnClickListener {
+            if(allFlashcards.isEmpty()){
+                //if empty, then we want to early return so the rest of the code doesn't execute
+                return@setOnClickListener
+            }
+
+            currCardDisplayedIndex++
+
+            if(currCardDisplayedIndex >= allFlashcards.size){
+                //go back to the beginning
+                currCardDisplayedIndex = 0
+            }
+
+            allFlashcards= flashcardDatabase.getAllCards().toMutableList()
+
+            val question = allFlashcards[currCardDisplayedIndex].question
+            val answer = allFlashcards[currCardDisplayedIndex].answer
+
+            flashcardQuestion.text = question
+            flashcardAnswer.text = answer
+        }
+
     }
+
 }

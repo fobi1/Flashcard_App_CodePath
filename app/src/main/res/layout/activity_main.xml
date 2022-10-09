@@ -98,5 +98,15 @@
         android:layout_alignParentBottom="true"
         app:srcCompat="@drawable/ic_plussign" />
 
+    <ImageView
+        android:id="@+id/nextarrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/flashcard_question"
+        android:layout_marginRight="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/ic_nextarrow" />
+
 
 </RelativeLayout>
