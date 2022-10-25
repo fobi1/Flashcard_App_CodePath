@@ -3,7 +3,7 @@
 ## Lab 4
 
 ### App Description
-`TODO://` Added app icon and implemented different types of animation within app
+Added app icon and implemented different types of animation within app
 
 ### App Walk-though
 <img src="flashcardwalkthrough4.gif" width=200><br>
