@@ -92,20 +92,20 @@
 
     <ImageView
         android:id="@+id/plussign"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         app:srcCompat="@drawable/ic_plussign" />
 
     <ImageView
         android:id="@+id/nextarrow"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_below="@id/flashcard_question"
         android:layout_marginRight="30dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         app:srcCompat="@drawable/ic_nextarrow" />
 
 
